@@ -1,68 +1,121 @@
-# User Data Management API
+# Backend Developer Assignment – User Data Management & Twitter OAuth API  
 
-## Overview
-This assignment involves building a set of APIs that manage user data, interact with a database, and handle email notifications. The APIs will handle operations such as uploading user data, viewing user data, backing up the database, and restoring the database.
+## **Overview**  
+This assignment is designed to evaluate your ability to build robust APIs, interact with a MySQL database, and integrate third-party authentication using Twitter OAuth. The assignment consists of two parts:  
 
-## Language & Framework
-**Language**: PHP
-**Framework**: Symfony
-**Database**: Mysql
+1. **User Data Management API** – Handles CSV uploads, user management, and database backup/restore.  
+2. **Twitter OAuth Integration** – Implements authentication using Twitter API in a Symfony-based backend.  
 
-## Requirements
+## **Technology Stack**  
+- **Language**: PHP  
+- **Framework**: Symfony  
+- **Database**: MySQL  
 
-### Data.csv File
-Create a `data.csv` file that contains the following columns: `name`, `email`, `username`, `address`, `role`. Include 10 users with a mix of roles (`USER`, `ADMIN`) include at least 2-3 valid email IDs.
+---
 
-Example CSV data:
-```
-name,email,username,address,role
-John Doe,john.doe@example.com,johndoe,123 Main St,USER
-Jane Smith,jane.smith@example.com,janesmith,456 Elm St,ADMIN
-Michael Johnson,michael.j@example.com,mjohnson,789 Pine St,USER
-Emily Davis,emily.d@example.com,emilydavis,101 Oak St,ADMIN
-David Brown,david.b@example.com,davidbrown,202 Maple St,USER
-Sarah Wilson,sarah.w@example.com,sarahwilson,303 Birch St,USER
-Daniel Lee,daniel.l@example.com,daniellee,404 Cedar St,ADMIN
-Jessica Martinez,jessica.m@example.com,jessicam,505 Walnut St,USER
-Paul Garcia,paul.g@example.com,paulgarcia,606 Ash St,USER
-Laura Clark,laura.c@example.com,lauraclark,707 Cherry St,ADMIN
-```
+## **Part 1: User Data Management API**  
 
-### Build APIs
-1. **Upload and Store Data API**
-   - **Endpoint**: POST /api/upload
-   - **Description**: Allows an admin to upload the `data.csv` file.
-   - **Functionality**:
-     - Parse the `data.csv` file.
-     - Save the data into a database.
-     - Send an email to each user upon successful storage.
-     - Ensure the email sending does not block the API response.
+### **Data Upload & Management**  
+You will work with a CSV file (`data.csv`) containing user details with the following columns:  
 
-2. **View Data API**
-   - **Endpoint**: GET /api/users
-   - **Description**: Allows viewing of all user data stored in the database.
+- `name`  
+- `email`  
+- `username`  
+- `address`  
+- `role` (`USER`, `ADMIN`)  
 
-3. **Backup Database API**
-   - **Endpoint**: GET /api/backup
-   - **Description**: Allows an admin to take a backup of the database.
-   - **Functionality**:
-     - Generate a backup file (e.g., backup.sql).
+### **API Endpoints to Implement**  
 
-4. **Restore Database API**
-   - **Endpoint**: POST /api/restore
-   - **Description**: Allows an admin to restore the database from the backup.sql file.
-   - **Functionality**:
-     - Restore the database using the backup file.
+#### **1. Upload and Store Data API**  
+- **Endpoint**: `POST /api/upload`  
+- **Description**: Allows an admin to upload the `data.csv` file.  
+- **Functionality**:  
+  - Parses the `data.csv` file.  
+  - Saves the data into a database.  
+  - Sends an email notification to each user upon successful storage.  
+  - Ensures email sending is handled asynchronously (does not block API response).  
 
-### Email Sending
-- Utilize an email service to send emails to users upon successful data storage.
-- Ensure emails are sent asynchronously to avoid blocking the API response.
+#### **2. View Data API**  
+- **Endpoint**: `GET /api/users`  
+- **Description**: Returns all stored user data from the database.  
 
-### Project Completion
-- Ensure the project is API-based; non-API projects will not be considered.
-- Inform us upon completion to schedule an interview.
+#### **3. Backup Database API**  
+- **Endpoint**: `GET /api/backup`  
+- **Description**: Allows an admin to take a backup of the database.  
+- **Functionality**:  
+  - Generates a backup file (e.g., `backup.sql`).  
 
-### Interview and Contact Information
-- The interview will be conducted via Google Meet.
-- If you have any queries, you can directly message us on WhatsApp: +91 8278085253.
-- Please ensure the project is complete; incomplete projects will be considered as rejected.
+#### **4. Restore Database API**  
+- **Endpoint**: `POST /api/restore`  
+- **Description**: Allows an admin to restore the database from `backup.sql`.  
+- **Functionality**:  
+  - Restores the database using the provided backup file.  
+
+### **Email Notification**  
+- Use an email service to send notifications to users upon successful data storage.  
+- Ensure emails are sent asynchronously.  
+
+---
+
+## **Part 2: Twitter OAuth Integration**  
+
+Your task is to integrate Twitter authentication into the Symfony backend. This includes:  
+
+- Implementing Twitter login using **OAuth 1.0a**.  
+- Storing authenticated user details in MySQL.  
+- Providing an API endpoint for the mobile app to initiate authentication.  
+- Handling the OAuth callback from Twitter and saving user data.  
+- Redirecting users back to the app upon successful authentication.  
+
+### **API Endpoints to Implement**  
+
+#### **1. Initiate Twitter Authentication**  
+- **Endpoint**: `GET /auth/twitter`  
+- **Description**: Redirects the user to Twitter for authentication.  
+
+#### **2. Handle Twitter Callback**  
+- **Endpoint**: `GET /auth/twitter/callback`  
+- **Description**: Handles the OAuth response, fetches user details, stores them in MySQL, and redirects the user back to the app.  
+
+---
+
+### **Submission Guidelines**  
+
+To successfully complete the assignment, you must submit the following:  
+
+## **Deliverables**  
+1. **Symfony Project** with:  
+   - Functional **User Data Management API**.  
+   - **Twitter OAuth integration** for authentication.  
+2. **Database Migration Script** to store user details.  
+3. **README.md File** explaining:  
+   - How to set up and run the project.  
+   - How to configure Twitter API keys.  
+   - Example API responses.  
+4. **Postman Collection** for testing API endpoints.  
+5. **Video Submission**:  
+   - **Introduction Video (30-40 sec)**:  
+     - Show your face in the video.  
+     - Provide a brief introduction about yourself.  
+     - Explain what you built in this assignment.  
+   - **Screen Recording**:  
+     - Run the APIs using **Postman** and show the working endpoints.  
+     - Demonstrate how Twitter authentication works.  
+     - Show how data is stored and retrieved from the database.  
+
+---
+
+## **Submission Guidelines**  
+- Submit your assignment as a **GitHub repository**.  
+- Include all files, including the **README.md** and **Postman collection**.  
+- Upload the **videos** to Google Drive or YouTube (unlisted) and provide the link in your submission.  
+- Notify us upon completion via our **Telegram group**: [Join Here](https://t.me/+I58w50QYkrgwMzc1).  
+
+---
+
+### **Important Notes**  
+✅ Ensure that all APIs work correctly before submission.  
+✅ Incomplete submissions will not be considered.  
+✅ The video submission is mandatory.  
+
+Good luck! 🚀
