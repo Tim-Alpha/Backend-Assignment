@@ -1,7 +1,7 @@
 # Backend Developer Assignment – User Data Management & Twitter OAuth API  
 
 ## **Overview**  
-This assignment is designed to evaluate your ability to build robust APIs, interact with a MySQL database, and integrate third-party authentication using Twitter OAuth. The assignment consists of two parts:  
+This assignment is designed to evaluate your ability to build robust APIs, interact with a MySQL database, and integrate third-party authentication using Twitter OAuth. The assignment consists of two parts:  To know more about as explore our product [ANDROID](https://play.google.com/store/apps/details?id=com.empowerverse.app) || [iOS](https://apps.apple.com/us/app/empowerverse/id6449552284).
 
 1. **User Data Management API** – Handles CSV uploads, user management, and database backup/restore.  
 2. **Twitter OAuth Integration** – Implements authentication using Twitter API in a Symfony-based backend.  
