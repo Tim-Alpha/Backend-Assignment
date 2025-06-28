@@ -109,7 +109,7 @@ To successfully complete the assignment, you must submit the following:
 - Submit your assignment as a **GitHub repository**.  
 - Include all files, including the **README.md** and **Postman collection**.  
 - Upload the **videos** to Google Drive or YouTube (unlisted) and provide the link in your submission.  
-- Notify us upon completion via our **Telegram group**: [Join Here](https://t.me/+I58w50QYkrgwMzc1).  
+- Notify us upon completion via our **Telegram group**.  
 
 ---
 
